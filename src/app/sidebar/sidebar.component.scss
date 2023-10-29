@@ -1,0 +1,26 @@
+.youtube-sidebar {
+//   background-color: #333; /* Dark background color for the sidebar */
+//   color: #FFF; /* White text color */
+  width: 150px;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 2px;
+}
+
+.youtube-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.youtube-sidebar li {
+  margin-bottom: 10px;
+}
+
+.youtube-sidebar a {
+  text-decoration: none;
+//   color: #FFF;
+}
+
+.youtube-sidebar a:hover {
+  text-decoration: underline;
+}
