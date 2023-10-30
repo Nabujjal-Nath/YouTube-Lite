@@ -1,12 +1,10 @@
 .yt-container {
     display: flex;
-    overflow-y:none;
-    height: 100%;
+    height: 89vh;
 }
 
 .yt-sidebar-container {
     overflow-y: auto; /* Add a scrollbar for the sidebar */
-    background-color: lightgray; /* Optional: Set a background color for the sidebar container */
 }
 
 .yt-video-container {
@@ -14,3 +12,4 @@
     overflow-y: auto; /* Add a scrollbar for the video container */
     background-color: lightblue; /* Optional: Set a background color for the video container */
 }
+
