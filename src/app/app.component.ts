@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { StoreService } from './store.service';
-import { environment } from 'src/environments/environment';
 import { MOST_POPULAR_VIDEOS } from 'src/utils/constant';
+import { ApiService } from './api.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +10,8 @@ import { MOST_POPULAR_VIDEOS } from 'src/utils/constant';
 })
 export class AppComponent {
   title = 'YouTube-lite';
-  constructor(){
-    this.abc();
+  constructor(private api:ApiService){
+    this.api.fetchMostPopularVideos();
   }
-  abc(){
-    console.log("HII:",MOST_POPULAR_VIDEOS);
-  }
+
 }
