@@ -1,17 +1,14 @@
-<div *ngIf="mostPopularVideos.length > 0">
-    <div *ngFor="let video of mostPopularVideos">
+<div class="yt-video-cards" *ngIf="mostPopularVideos.length > 0">
+    <div class="yt-video-card" *ngFor="let video of mostPopularVideos">
       <img [src]="video.thumbnails" alt="Video Thumbnail">
-      <ul >
-        <li>{{video.title}}</li>
-        <li>Channel: {{ video.channelTitle }}</li>
-        <li>Views: {{ video.viewCount }}</li>
-    </ul>
+      <div class="video-details">
+        <h2>{{video.title}}</h2>
+        <p>Channel: {{video.channelTitle}}</p>
+        <p>Views: {{video.viewCount}}</p>
+      </div>
     </div>
-  </div>
+</div>
   <div *ngIf="mostPopularVideos.length === 0">
     <p>Loading data...</p>
   </div>
-  
-  
-  
   
