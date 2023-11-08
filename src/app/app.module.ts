@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VideoContainerComponent } from './video-container/video-container.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoCardComponent } from './video-container/video-card/video-card.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     SidebarComponent,
     VideoContainerComponent,
+    VideoCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,13 +11,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  fetchMostPopularVideos() {
-    this.http.get(`${MOST_POPULAR_VIDEOS}`).pipe(
-      catchError((error) => {
-        return throwError(() => error);})
-    )
-    .subscribe(data => {
-      console.log(data);
-    });
+  fetchMostPopularVideosAPI() {
+    return this.http.get(`${MOST_POPULAR_VIDEOS}`)
   }
 }

@@ -10,8 +10,4 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'YouTube-lite';
-  constructor(private api:ApiService){
-    this.api.fetchMostPopularVideos();
-  }
-
 }
