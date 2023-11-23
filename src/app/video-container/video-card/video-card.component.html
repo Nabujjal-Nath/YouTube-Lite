@@ -2,13 +2,12 @@
     <div class="yt-video-card" *ngFor="let video of mostPopularVideos">
       <img [src]="video.thumbnails" alt="Video Thumbnail">
       <div class="video-details">
-        <div style="display: flex;">
-          <img src="" alt="channel-icon">
-          <h2>{{video.title}}</h2>
+        <img class="channel-icon" [src]="video.channelIcon" alt="">
+        <div>
+          <h2>{{video.title}}</h2> 
+          <p>Channel: {{video.channelTitle}}</p>
+          <p>Views: {{video.viewCount}}</p>
         </div>
-        
-        <p>Channel: {{video.channelTitle}}</p>
-        <p>Views: {{video.viewCount}}</p>
       </div>
     </div>
 </div>
