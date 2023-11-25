@@ -20,6 +20,7 @@ export class VideoCardComponent implements OnInit {
     this.api.fetchMostPopularVideosAPI().pipe(
       catchError((error) => throwError(() => error)),
       switchMap((data: any) => {
+        console.log("data is:",data)
         const videoItems = data.items;
         const channelInfoRequests = videoItems.map((item: any) => {
           return this.api.fetchChannelInfoAPI(item.snippet.channelId);
@@ -32,18 +33,31 @@ export class VideoCardComponent implements OnInit {
         );
       })
     ).subscribe(({ videoItems, channelInfoResponses }: any) => {
+      console.log("channelInfoResponses:",channelInfoResponses)
       this.mostPopularVideos = videoItems.map((item: any, index: number) => {
         return {
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
-          viewCount: item.statistics.viewCount,
+          viewCount: this.formatViewCount(item.statistics.viewCount),
           channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url
         };
       });
       console.log(this.mostPopularVideos);
     });
   }
+
+  formatViewCount(viewCount: number): string {
+    const suffixes = ['', 'K', 'M', 'B'];
+    let scaleIndex = 0;
+    while (viewCount >= 1000 && scaleIndex < suffixes.length - 1) {
+        viewCount /= 1000;
+        scaleIndex++;
+    }
+    return `${viewCount.toFixed(scaleIndex === 0 ? 0 : 1)}${suffixes[scaleIndex]}`;
+}
+
+
 
   // fetchMostPopularVideos(){
   //   this.api.fetchMostPopularVideosAPI().pipe(
