@@ -36,6 +36,7 @@ export class VideoContainerComponent implements OnInit {
       console.log("channelInfoResponses:", channelInfoResponses)
       this.mostPopularVideos = videoItems.map((item: any, index: number) => {
         return {
+          videoId: item.id,
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,

@@ -1,7 +1,9 @@
 <div class="yt-video-card-container">
   <div class="yt-video-cards" *ngIf="mostPopularVideos.length > 0">
     <div class="yt-video-card" *ngFor="let video of mostPopularVideos">
-      <app-video-card [videoDetails]="video"></app-video-card>
+      <a [routerLink]="['/watch']" [queryParams]="{ id: video.videoId }">
+        <app-video-card [videoDetails]="video"></app-video-card>
+      </a>
     </div>
   </div>
 </div>
