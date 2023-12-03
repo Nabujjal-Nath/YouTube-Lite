@@ -1,3 +1,11 @@
 <div class="yt-video-card-container">
-  <app-video-card></app-video-card>
+  <div class="yt-video-cards" *ngIf="mostPopularVideos.length > 0">
+    <div class="yt-video-card" *ngFor="let video of mostPopularVideos">
+      <app-video-card [videoDetails]="video"></app-video-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mostPopularVideos.length === 0">
+  <p>Loading data...</p>
 </div>

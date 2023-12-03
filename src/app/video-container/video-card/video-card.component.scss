@@ -1,43 +1,28 @@
-.yt-video-cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-.yt-video-card {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    transition: transform 0.2s ease-in-out;
-    width: 30%;
-  }
-  
   .yt-video-card:hover {
     transform: translateY(-5px);
   }
-  
+
   img {
     max-width: 100%;
     height: auto;
   }
-  
+
   .video-details {
     padding: 10px;
     display: flex;
   }
-  
+
   h2 {
     font-size: 18px;
     margin: 0;
   }
-  
+
   p {
     font-size: 14px;
     color: #777;
     margin: 0;
   }
-  
+
   /* Loading message style */
   .loading-message {
     font-size: 16px;
@@ -46,7 +31,7 @@
     padding: 10px;
   }
 
-  .channel-icon{
+  .channel-icon {
     height: 36px;
     width: 36px;
     border-radius: 50%;
