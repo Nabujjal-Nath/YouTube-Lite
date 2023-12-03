@@ -1,0 +1,16 @@
+.yt-container {
+    display: flex;
+    height: 89vh;
+}
+
+.yt-sidebar-container {
+    overflow-y: auto; /* Add a scrollbar for the sidebar */
+}
+
+.yt-video-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Add a scrollbar for the video container */
+    background-color: lightblue; /* Optional: Set a background color for the video container */
+    width: 70%;
+}
+

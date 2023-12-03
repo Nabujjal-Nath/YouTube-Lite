@@ -8,6 +8,8 @@ import { VideoContainerComponent } from './video-container/video-container.compo
 import { HttpClientModule } from '@angular/common/http';
 import { VideoCardComponent } from './video-container/video-card/video-card.component';
 import {AppRoutingModule} from './app-routing.module';
+import { VideoPlayerComponent } from './video-player/video-player.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import {AppRoutingModule} from './app-routing.module';
     SidebarComponent,
     VideoContainerComponent,
     VideoCardComponent,
+    VideoPlayerComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
