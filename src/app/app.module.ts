@@ -10,6 +10,7 @@ import { VideoCardComponent } from './video-container/video-card/video-card.comp
 import {AppRoutingModule} from './app-routing.module';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HomeComponent } from './home/home.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HomeComponent } from './home/home.component';
     VideoCardComponent,
     VideoPlayerComponent,
     HomeComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,
