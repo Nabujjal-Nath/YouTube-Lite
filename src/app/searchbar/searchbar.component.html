@@ -1,6 +1,10 @@
-<div>
-    <input type="text">
-    <button>
+<div class="search-container">
+    <input type="text" 
+    placeholder="Search"
+    [(ngModel)]="searchQuery"
+    (input)="onKeyPress()"
+    >
+    <button onclick="search()">
         <img src="../../assets/searchIcon.svg" alt="Search Icon" width="16" height="16">
     </button>
 </div>

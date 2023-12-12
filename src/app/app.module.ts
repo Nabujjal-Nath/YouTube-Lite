@@ -11,6 +11,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HomeComponent } from './home/home.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     VideoCardComponent,
     VideoPlayerComponent,
     HomeComponent,
-    SearchbarComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
