@@ -18,6 +18,6 @@ export class ApiService {
   }
 
   fetchSearchSuggestion(searchQuery:string){
-    return this.http.get(SEARCH_SUGGESTION_API+ searchQuery);
+    return this.http.get(SEARCH_SUGGESTION_API + searchQuery);
   }
 }
