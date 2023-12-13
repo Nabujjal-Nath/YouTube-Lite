@@ -1,28 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { catchError, throwError } from 'rxjs';
+import { Observable, Subject, Subscription, catchError, debounceTime, distinctUntilChanged, switchMap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss']
 })
-export class SearchbarComponent {
-  searchQuery: string = '';
+export class SearchbarComponent implements OnInit {
+  private searchText$ = new Subject<string>();
+  suggestionList = [];
   constructor(private apiService: ApiService) { }
-
-  onKeyPress() {
-    console.log('Key pressed. Current search query:', this.searchQuery);
-    this.apiService.fetchSearchSuggestion(this.searchQuery).pipe(
-      catchError((error) => {
-        return throwError(() => error);
-      }))
-      .subscribe((data: any) => {
-        console.log("Suggestion:", data)
-      })
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
   }
 
-  search() {
-    console.log('Searching for:', this.searchQuery);
+  search(searchString: string) {
+    this.searchText$.next(searchString);
   }
+
+  searchHandler(){}
+
+  ngOnInit() {
+    this.searchText$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      switchMap(searchString =>
+        this.apiService.fetchSearchSuggestion(searchString).pipe(
+          catchError((error) => {
+            return throwError(() => error);
+          })
+        )
+      )
+    ).subscribe((suggestions: any) => {
+      console.log("suggestion:", suggestions)
+      if (suggestions && suggestions.length === 4) {
+        this.suggestionList = suggestions[1];
+      } else {
+        this.suggestionList = [];
+      }
+    })
+  }
+
+
 }

@@ -1,10 +1,15 @@
 <div class="search-container">
-    <input type="text" 
-    placeholder="Search"
-    [(ngModel)]="searchQuery"
-    (input)="onKeyPress()"
-    >
-    <button onclick="search()">
+    <input type="text" placeholder="Search" (keyup)="search(getValue($event))">
+    <button (click)="searchHandler()">
         <img src="../../assets/searchIcon.svg" alt="Search Icon" width="16" height="16">
     </button>
+
+    <!-- Suggestions dropdown -->
+    <div *ngIf="suggestionList && suggestionList.length > 0" class="suggestions-dropdown">
+        <ul>
+            <li *ngFor="let suggestion of suggestionList">
+                {{ suggestion }}
+            </li>
+        </ul>
+    </div>
 </div>

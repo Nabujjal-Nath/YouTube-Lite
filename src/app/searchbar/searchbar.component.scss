@@ -1,14 +1,8 @@
-.search-container {
-    display: flex;
-    margin: 20px;
-    width: 70vh;
-    
-  }
-  
 input {
     flex: 1;
     padding: 10px;
     font-size: 16px;
+    width: 70vh;
 }
   
 button {
@@ -16,3 +10,37 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: none;
+    width: 100%;
+  }
+  
+  .suggestions-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .suggestions-dropdown li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestions-dropdown li:hover {
+    background-color: #f0f0f0;
+  }
