@@ -1,0 +1,9 @@
+{
+    "/echo/*":{
+        "target":"http://suggestqueries.google.com",
+        "secure":false,
+        "changeOrigin":true,
+        "loglLvel":"debug",
+        "pathRewrite": {"^/echo" : ""}
+    }
+}
