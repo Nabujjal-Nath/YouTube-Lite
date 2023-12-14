@@ -1,11 +1,15 @@
 <div class="search-container">
-    <input type="text" placeholder="Search" (keyup)="search(getValue($event))">
+    <input type="text" 
+    placeholder="Search" 
+    (keyup)="search(getValue($event))"
+    (focus)="toggleSuggestionsDropdown(true)"
+    (blur)="toggleSuggestionsDropdown(false)">
     <button (click)="searchHandler()">
         <img src="../../assets/searchIcon.svg" alt="Search Icon" width="16" height="16">
     </button>
 
     <!-- Suggestions dropdown -->
-    <div *ngIf="suggestionList && suggestionList.length > 0" class="suggestions-dropdown">
+    <div *ngIf="showSuggestionDropdown && suggestionList.length > 0" class="suggestions-dropdown">
         <ul>
             <li *ngFor="let suggestion of suggestionList">
                 {{ suggestion }}

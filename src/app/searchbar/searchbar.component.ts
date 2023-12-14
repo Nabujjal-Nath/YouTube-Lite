@@ -10,6 +10,7 @@ import { Observable, Subject, Subscription, catchError, debounceTime, distinctUn
 export class SearchbarComponent implements OnInit {
   private searchText$ = new Subject<string>();
   suggestionList = [];
+  showSuggestionDropdown=false;
   constructor(private apiService: ApiService) { }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
@@ -17,6 +18,10 @@ export class SearchbarComponent implements OnInit {
 
   search(searchString: string) {
     this.searchText$.next(searchString);
+  }
+
+  toggleSuggestionsDropdown(show: boolean) {
+    this.showSuggestionDropdown = show;
   }
 
   searchHandler(){}
