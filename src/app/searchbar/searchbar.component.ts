@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Observable, Subject, Subscription, catchError, debounceTime, distinctUntilChanged, switchMap, throwError } from 'rxjs';
+import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
