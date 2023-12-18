@@ -9,8 +9,9 @@ import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, thr
 })
 export class SearchbarComponent implements OnInit {
   private searchText$ = new Subject<string>();
+  searchString!: string;
   suggestionList = [];
-  showSuggestionDropdown=false;
+  showSuggestionDropdown = false;
   constructor(private apiService: ApiService) { }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
@@ -24,18 +25,28 @@ export class SearchbarComponent implements OnInit {
     this.showSuggestionDropdown = show;
   }
 
-  searchHandler(){}
+  searchHandler() {
+    this.apiService.fetchSearchListAPI(this.searchString).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    ).subscribe((list) => {
+      console.log("searched list:", list);
+    })
+  }
 
   ngOnInit() {
     this.searchText$.pipe(
-      debounceTime(200),
+      debounceTime(300),
       distinctUntilChanged(),
-      switchMap(searchString =>
-        this.apiService.fetchSearchSuggestion(searchString).pipe(
+      switchMap((searchString) => {
+        this.searchString = searchString;
+        return this.apiService.fetchSearchSuggestionAPI(searchString).pipe(
           catchError((error) => {
             return throwError(() => error);
           })
         )
+      }
       )
     ).subscribe((suggestions: any) => {
       console.log("suggestion:", suggestions)

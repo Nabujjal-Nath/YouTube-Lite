@@ -12,6 +12,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HomeComponent } from './home/home.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
+import { SearchListComponent } from './search-list/search-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     VideoCardComponent,
     VideoPlayerComponent,
     HomeComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    SearchListComponent
   ],
   imports: [
     BrowserModule,

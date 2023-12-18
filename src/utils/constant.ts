@@ -7,4 +7,5 @@ export const channels=`${baseURL}/channels?${commonPart}`
 export const MOST_POPULAR_VIDEOS = `${videos}chart=mostPopular&maxResults=50&regionCode=US&key=${environment.GOOGLE_API_KEY}`
 export const CHANNEL_BY_ID=`${channels}key=${environment.GOOGLE_API_KEY}&id=`
 export const PROXY_D0MAIN='/search-suggestion'
-export const SEARCH_SUGGESTION_API=`${PROXY_D0MAIN}/complete/search?client=firefox&ds=yt&q=`
+export const SEARCH_SUGGESTION=`${PROXY_D0MAIN}/complete/search?client=firefox&ds=yt&q=`
+export const SEARCH_LIST=`${baseURL}/search?part=snippet&maxResults=50&key=${environment.GOOGLE_API_KEY}&q=`
