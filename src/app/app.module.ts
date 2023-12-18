@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VideoContainerComponent } from './video-container/video-container.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VideoCardComponent } from './video-container/video-card/video-card.component';
+import { VideoCardComponent } from './video-card/video-card.component';
 import {AppRoutingModule} from './app-routing.module';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HomeComponent } from './home/home.component';
