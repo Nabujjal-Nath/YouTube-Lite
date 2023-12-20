@@ -3,15 +3,14 @@
         (blur)="toggleSuggestionsDropdown(false)">
 
     <button (click)="searchHandler()">
-        <a [routerLink]="['/result']" [queryParams]="{ search_query: searchString }"><img
-                src="../../assets/searchIcon.svg" alt="Search Icon" width="16" height="16"></a>
+        <img src="../../assets/searchIcon.svg" alt="Search Icon" width="16" height="16">
     </button>
 
     <!-- Suggestions dropdown -->
     <div *ngIf="showSuggestionDropdown && suggestionList.length > 0" class="suggestions-dropdown">
         <ul>
             <li *ngFor="let suggestion of suggestionList">
-                <a  (click)="searchHandler()">{{ suggestion }}</a>
+                <a (click)="searchHandler()">{{ suggestion }}</a>
             </li>
         </ul>
     </div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, throwError } from 'rxjs';
 import { StoreService } from '../store.service';
+import { isNullOrUndefined } from 'src/utils/common-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchbar',
@@ -13,8 +15,9 @@ export class SearchbarComponent implements OnInit {
   searchString!: string;
   suggestionList = [];
   showSuggestionDropdown = false;
-  constructor(private apiService: ApiService,
-    private storeService:StoreService) { }
+  constructor(private router: Router,
+    private apiService: ApiService,
+    private storeService: StoreService) { }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
@@ -28,14 +31,17 @@ export class SearchbarComponent implements OnInit {
   }
 
   searchHandler() {
-    this.apiService.fetchSearchListAPI(this.searchString).pipe(
-      catchError((error) => {
-        return throwError(() => error);
+    if (!isNullOrUndefined(this.searchString) && this.searchString!='') {
+      this.apiService.fetchSearchListAPI(this.searchString).pipe(
+        catchError((error) => {
+          return throwError(() => error);
+        })
+      ).subscribe((list) => {
+        console.log("searched list:", list);
+        this.storeService.setSearchedData(list);
       })
-    ).subscribe((list) => {
-      console.log("searched list:", list);
-      this.storeService.setSearchedData(list)
-    })
+      this.router.navigate(['/result'], { queryParams: { search_query: this.searchString } });
+    }
   }
 
   ngOnInit() {
@@ -60,6 +66,4 @@ export class SearchbarComponent implements OnInit {
       }
     })
   }
-
-
 }

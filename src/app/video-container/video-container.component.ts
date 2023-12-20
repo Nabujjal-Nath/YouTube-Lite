@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { catchError, forkJoin, map, switchMap, throwError } from 'rxjs';
-import { MostPopularVideosInterface } from 'src/utils/interface';
-import { CommonUtils } from 'src/utils/common-utils';
+import { formatViewCount } from 'src/utils/common-utils';
+import { videoDetailsInterface } from '../model';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { CommonUtils } from 'src/utils/common-utils';
   styleUrls: ['./video-container.component.scss']
 })
 export class VideoContainerComponent implements OnInit {
-  mostPopularVideos: MostPopularVideosInterface[] = [];
+  mostPopularVideos: videoDetailsInterface[] = [];
   constructor(private api: ApiService) { }
   ngOnInit(): void {
     this.fetchMostPopularVideos();
@@ -41,7 +41,7 @@ export class VideoContainerComponent implements OnInit {
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
-          viewCount: CommonUtils.formatViewCount(item.statistics.viewCount),
+          viewCount: formatViewCount(item.statistics.viewCount),
           channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url
         };
       });

@@ -1,9 +1,9 @@
-<div style="display: flex;" *ngFor="let item of searchData?.items">
-    <img [src]="item.snippet.thumbnails.medium.url" alt="Video Thumbnail">
+<div style="display: flex;" *ngFor="let item of searchListData">
+    <img [src]="item.thumbnails" alt="Video Thumbnail">
     <div class="video-details">
-        <h2>{{item.snippet.title}}</h2>
-        <p>1M views <span>3 days ago</span></p>
-        <p>{{item.snippet.channelTitle}}</p>
-        <p>{{item.snippet.description}}</p>
+        <h2>{{item.title}}</h2>
+        <p>{{item.viewCount}} <span>3 days ago</span></p>
+        <p>{{item.channelTitle}}</p>
+        <p>{{item.description}}</p>
     </div>
 </div>

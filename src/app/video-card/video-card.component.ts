@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { catchError, forkJoin, map, switchMap, throwError } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
-import { MostPopularVideosInterface } from 'src/utils/interface';
+import { videoDetailsInterface } from '../model';
+
 
 @Component({
   selector: 'app-video-card',
@@ -11,8 +12,8 @@ import { MostPopularVideosInterface } from 'src/utils/interface';
 
 export class VideoCardComponent implements OnInit {
   @Input()
-  videoDetails!: MostPopularVideosInterface;
-  mostPopularVideos: MostPopularVideosInterface[]=[];
+  videoDetails!: videoDetailsInterface;
+  mostPopularVideos: videoDetailsInterface[]=[];
   constructor(private api:ApiService){}
   ngOnInit(): void {
   }

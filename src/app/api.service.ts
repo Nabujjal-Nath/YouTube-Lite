@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CHANNEL_BY_ID, MOST_POPULAR_VIDEOS, SEARCH_LIST, SEARCH_SUGGESTION } from 'src/utils/constant';
+import { CHANNEL_BY_ID, MOST_POPULAR_VIDEOS, SEARCH_LIST, SEARCH_SUGGESTION, VIDEO_BY_ID } from 'src/utils/constant';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,10 @@ export class ApiService {
   
   fetchChannelInfoAPI(id:string) {
     return this.http.get(`${CHANNEL_BY_ID}${id}`);
+  }
+
+  fetchVideoInfoAPI(id:string) {
+    return this.http.get(`${VIDEO_BY_ID}${id}`);
   }
 
   fetchSearchSuggestionAPI(searchQuery:string){
