@@ -1,1 +1,9 @@
-<p>search-list works!</p>
+<div style="display: flex;" *ngFor="let item of searchData?.items">
+    <img [src]="item.snippet.thumbnails.medium.url" alt="Video Thumbnail">
+    <div class="video-details">
+        <h2>{{item.snippet.title}}</h2>
+        <p>1M views <span>3 days ago</span></p>
+        <p>{{item.snippet.channelTitle}}</p>
+        <p>{{item.snippet.description}}</p>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Subject, catchError, debounceTime, distinctUntilChanged, switchMap, throwError } from 'rxjs';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -12,7 +13,8 @@ export class SearchbarComponent implements OnInit {
   searchString!: string;
   suggestionList = [];
   showSuggestionDropdown = false;
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+    private storeService:StoreService) { }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
@@ -32,6 +34,7 @@ export class SearchbarComponent implements OnInit {
       })
     ).subscribe((list) => {
       console.log("searched list:", list);
+      this.storeService.setSearchedData(list)
     })
   }
 
