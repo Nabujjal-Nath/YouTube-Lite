@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { catchError, forkJoin, map, switchMap, throwError } from 'rxjs';
 import { MostPopularVideosInterface } from 'src/utils/interface';
+import { CommonUtils } from 'src/utils/common-utils';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class VideoContainerComponent implements OnInit {
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
-          viewCount: this.formatViewCount(item.statistics.viewCount),
+          viewCount: CommonUtils.formatViewCount(item.statistics.viewCount),
           channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url
         };
       });
@@ -57,15 +58,4 @@ export class VideoContainerComponent implements OnInit {
         return data.items[0].snippet.thumbnails.default.url;
       });
   }
-
-  formatViewCount(viewCount: number): string {
-    const suffixes = ['', 'K', 'M', 'B'];
-    let scaleIndex = 0;
-    while (viewCount >= 1000 && scaleIndex < suffixes.length - 1) {
-      viewCount /= 1000;
-      scaleIndex++;
-    }
-    return `${viewCount.toFixed(scaleIndex === 0 ? 0 : 1)}${suffixes[scaleIndex]}`;
-  }
-
 }

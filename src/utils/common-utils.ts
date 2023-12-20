@@ -1,0 +1,11 @@
+export class CommonUtils {
+    static formatViewCount(viewCount: number): string {
+        const suffixes = ['', 'K', 'M', 'B'];
+        let scaleIndex = 0;
+        while (viewCount >= 1000 && scaleIndex < suffixes.length - 1) {
+          viewCount /= 1000;
+          scaleIndex++;
+        }
+        return `${viewCount.toFixed(scaleIndex === 0 ? 0 : 1)}${suffixes[scaleIndex]}`;
+      }
+  }
