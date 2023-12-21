@@ -16,7 +16,7 @@ export class VideoPlayerComponent implements OnInit {
   ngOnInit(): void {
     // Retrieve the id parameter from the route
     this.route.queryParams.subscribe(params => {
-      this.videoID = params['id'];
+      this.videoID = params['v'];
       this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.videoID}?autoplay=1`);
     });
   }

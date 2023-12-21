@@ -26,12 +26,18 @@ export class SearchbarComponent implements OnInit {
     this.searchText$.next(searchString);
   }
 
-  toggleSuggestionsDropdown(show: boolean) {
-    this.showSuggestionDropdown = show;
+  toggleSuggestionsDropdown(open: boolean): void {
+    if (!open) {
+      setTimeout(() => this.showSuggestionDropdown = open, 300); // Delay to allow click event to be captured
+    } else {
+      this.showSuggestionDropdown = open;
+    }
   }
 
-  searchHandler() {
-    if (!isNullOrUndefined(this.searchString) && this.searchString!='') {
+  searchHandler(suggestion?: string) {
+    if (!isNullOrUndefined(this.searchString) && this.searchString != '') {
+      if (suggestion)
+        this.searchString = suggestion;
       this.apiService.fetchSearchListAPI(this.searchString).pipe(
         catchError((error) => {
           return throwError(() => error);
