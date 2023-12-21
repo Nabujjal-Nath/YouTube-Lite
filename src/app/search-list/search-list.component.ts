@@ -42,7 +42,8 @@ export class SearchListComponent {
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
           viewCount: formatViewCount(videoInfoResponses[index].items[0].statistics.viewCount),
-          channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url
+          channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url,
+          description: item.snippet.description
         };
       });
       console.log("SSS::", this.searchListData);

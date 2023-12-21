@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!isSearchList ; else searchedList">
   <img [src]="videoDetails.thumbnails" alt="Video Thumbnail">
   <div class="video-details">
     <img class="channel-icon" [src]="videoDetails.channelIcon" alt="">
@@ -9,3 +9,16 @@
     </div>
   </div>
 </div>
+
+<ng-template #searchedList>
+  <div class="searchedList">
+    <img [src]="videoDetails.thumbnails" alt="Video Thumbnail">
+    <div>
+        <h2>{{videoDetails.title}}</h2>
+        <p>{{videoDetails.viewCount}} <span>3 days ago</span></p>
+        <p>{{videoDetails.channelTitle}}</p>
+        <p>{{videoDetails.description}}</p>
+    </div>
+  </div>
+</ng-template>
+

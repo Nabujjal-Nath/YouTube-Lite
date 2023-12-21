@@ -52,7 +52,7 @@ export class SearchbarComponent implements OnInit {
 
   ngOnInit() {
     this.searchText$.pipe(
-      debounceTime(300),
+      debounceTime(200),
       distinctUntilChanged(),
       switchMap((searchString) => {
         this.searchString = searchString;

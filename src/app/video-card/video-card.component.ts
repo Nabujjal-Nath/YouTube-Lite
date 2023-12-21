@@ -13,8 +13,10 @@ import { videoDetailsInterface } from '../model';
 export class VideoCardComponent implements OnInit {
   @Input()
   videoDetails!: videoDetailsInterface;
-  mostPopularVideos: videoDetailsInterface[]=[];
-  constructor(private api:ApiService){}
+  @Input()
+  isSearchList: boolean = false;
+  mostPopularVideos: videoDetailsInterface[] = [];
+  constructor(private api: ApiService) { }
   ngOnInit(): void {
   }
 
@@ -38,5 +40,5 @@ export class VideoCardComponent implements OnInit {
   //         console.log(this.mostPopularVideos)
   //     });
   // }
-  
+
 }

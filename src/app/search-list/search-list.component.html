@@ -1,9 +1,5 @@
-<div style="display: flex;" *ngFor="let item of searchListData">
-    <img [src]="item.thumbnails" alt="Video Thumbnail">
-    <div class="video-details">
-        <h2>{{item.title}}</h2>
-        <p>{{item.viewCount}} <span>3 days ago</span></p>
-        <p>{{item.channelTitle}}</p>
-        <p>{{item.description}}</p>
-    </div>
-</div>
+<div *ngFor="let video of searchListData">
+    <a [routerLink]="['/watch']" [queryParams]="{ v: video.videoId }">
+      <app-video-card [isSearchList]="true" [videoDetails]="video"></app-video-card>
+    </a>
+  </div>
