@@ -10,4 +10,3 @@ export const VIDEO_BY_ID=`${videos}key=${environment.GOOGLE_API_KEY}&id=`
 export const PROXY_D0MAIN='/search-suggestion'
 export const SEARCH_SUGGESTION=`${PROXY_D0MAIN}/complete/search?client=firefox&ds=yt&q=`
 export const SEARCH_LIST=`${baseURL}/search?part=snippet&maxResults=50&key=${environment.GOOGLE_API_KEY}&q=`
-// https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc&key=AIzaSyDhpx6wvVTpUhN70AOpkRk7nhv4qoLl664

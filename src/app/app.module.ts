@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
 import { SearchListComponent } from './search-list/search-list.component';
+import { WatchPageComponent } from './watch-page/watch-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchListComponent } from './search-list/search-list.component';
     VideoPlayerComponent,
     HomeComponent,
     SearchbarComponent,
-    SearchListComponent
+    SearchListComponent,
+    WatchPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { catchError, forkJoin, map, switchMap, throwError } from 'rxjs';
-import { formatViewCount } from 'src/utils/common-utils';
+import { formatCount } from 'src/utils/common-utils';
 import { videoDetailsInterface } from '../model';
 
 
@@ -41,7 +41,7 @@ export class VideoContainerComponent implements OnInit {
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
-          viewCount: formatViewCount(item.statistics.viewCount),
+          viewCount: formatCount(item.statistics.viewCount),
           channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url
         };
       });

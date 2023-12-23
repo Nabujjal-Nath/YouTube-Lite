@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes , RouterModule} from '@angular/router';
-import { AppComponent } from './app.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HomeComponent } from './home/home.component';
 import { SearchListComponent } from './search-list/search-list.component';
+import { WatchPageComponent } from './watch-page/watch-page.component';
 const routes: Routes = [
   {
     path:'',
@@ -11,7 +10,7 @@ const routes: Routes = [
   },
   {
     path:'watch',
-    component: VideoPlayerComponent
+    component: WatchPageComponent
   },
   {
     path:'result',

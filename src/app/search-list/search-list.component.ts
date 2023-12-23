@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { StoreService } from '../store.service';
 import { ApiService } from '../api.service';
 import { catchError, filter, forkJoin, map, switchMap, throwError } from 'rxjs';
-import { formatViewCount } from 'src/utils/common-utils';
+import { formatCount } from 'src/utils/common-utils';
 import { videoDetailsInterface } from '../model';
 
 @Component({
@@ -41,7 +41,7 @@ export class SearchListComponent {
           thumbnails: item.snippet.thumbnails.medium.url,
           title: item.snippet.title,
           channelTitle: item.snippet.channelTitle,
-          viewCount: formatViewCount(videoInfoResponses[index].items[0].statistics.viewCount),
+          viewCount: formatCount(videoInfoResponses[index].items[0].statistics.viewCount),
           channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url,
           description: item.snippet.description
         };
