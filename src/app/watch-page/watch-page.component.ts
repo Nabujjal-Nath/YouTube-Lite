@@ -10,7 +10,14 @@ import { videoDetailsInterface } from '../model';
   styleUrls: ['./watch-page.component.scss']
 })
 export class WatchPageComponent implements OnInit {
-  watchVideoDetails: videoDetailsInterface[] = [];
+  watchVideoDetails: videoDetailsInterface={
+    videoId: '',
+    channelIcon: '',
+    thumbnails: '',
+    title: '',
+    channelTitle: '',
+    viewCount: ''
+  };
   constructor(private api: ApiService) { }
 
   ngOnInit() { }
@@ -29,15 +36,17 @@ export class WatchPageComponent implements OnInit {
         );
       })
     ).subscribe(({ videoItem, channelInfoResponse }) => {
-      this.watchVideoDetails = [{
+      this.watchVideoDetails = {
         videoId: videoItem.id,
         thumbnails: videoItem.snippet.thumbnails.medium.url,
         title: videoItem.snippet.title,
         channelTitle: videoItem.snippet.channelTitle,
         viewCount: formatCount(videoItem.statistics.viewCount),
         channelIcon: channelInfoResponse.items[0].snippet.thumbnails.default.url,
-        likeCount: formatCount(videoItem.statistics.likeCount)
-      }];
+        likeCount: formatCount(videoItem.statistics.likeCount),
+        subscribers: formatCount(channelInfoResponse.items[0].statistics.subscriberCount),
+        channelDescription: channelInfoResponse.items[0].snippet.description
+      };
 
       console.log("watch video details:", this.watchVideoDetails);
     });

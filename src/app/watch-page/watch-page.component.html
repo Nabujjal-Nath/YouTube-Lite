@@ -1,1 +1,43 @@
 <app-video-player (videoIdChange)="onVideoIdChange($event)"></app-video-player>
+<div class="video-container">
+    <div class="title-container">
+        <div class="title">{{watchVideoDetails.title}}</div>
+    </div>
+    <div class="details-container">
+        <div class="channel-details">
+            <img class="channel-icon" src="{{watchVideoDetails.channelIcon}}" alt="channel icon">
+            <div class="channel-info">
+                <p class="channel-title">{{watchVideoDetails.channelTitle}}</p>
+                <p class="subscribers">{{watchVideoDetails.subscribers}} subscribers</p>
+            </div>
+        </div>
+
+        <div class="channel-actions">
+            <button class="join-button">Join</button>
+            <button class="subscribe-button">Subscribe</button>
+        </div>
+
+        <div class="interaction-container">
+            <div class="like-container">
+                <span class="icon">👍</span>
+                <span class="like-count">{{watchVideoDetails.likeCount}}</span>
+            </div>
+
+            <div class="dislike-container">
+                <span class="icon">👎</span>
+            </div>
+            <div class="share-container">
+                <span class="icon">🔗</span>
+            </div>
+            <div class="more-container">
+                <span class="icon">⋮</span>
+            </div>
+        </div>
+    </div>
+    <div class="view-container">
+        <div class="views">
+            <p>{{watchVideoDetails.viewCount}} views <span>• 3 days ago</span></p>
+        </div>
+    </div>
+    <div class="description">{{watchVideoDetails.channelDescription}}</div>
+</div>

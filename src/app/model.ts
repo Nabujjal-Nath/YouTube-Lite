@@ -6,6 +6,8 @@ export interface videoDetailsInterface {
     channelTitle:string,
     viewCount:string,
     channelId?:string,
-    description?:string,
-    likeCount?:string
+    videoDescription?:string,
+    channelDescription?:string,
+    likeCount?:string,
+    subscribers?:string
 }
