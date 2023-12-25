@@ -45,7 +45,7 @@ export class WatchPageComponent implements OnInit {
         channelIcon: channelInfoResponse.items[0].snippet.thumbnails.default.url,
         likeCount: formatCount(videoItem.statistics.likeCount),
         subscribers: formatCount(channelInfoResponse.items[0].statistics.subscriberCount),
-        channelDescription: channelInfoResponse.items[0].snippet.description
+        videoDescription: videoItem.snippet.description
       };
 
       console.log("watch video details:", this.watchVideoDetails);
