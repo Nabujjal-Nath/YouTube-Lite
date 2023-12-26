@@ -1,0 +1,21 @@
+<div *ngFor="let comment of comments" class="comment">
+    <div class="comment-header">
+        <img [src]="comment.authorProfileImageUrl" alt="Avatar" class="comment-avatar">
+        <div class="comment-details">
+            <div class="comment-author-published">
+                <div class="comment-author">{{comment.authorDisplayName}}</div>
+                <span>3 days ago</span>
+            </div>
+            <div class="comment-body">{{comment.textOriginal}}</div>
+            <span class="icon">👍{{comment.likeCount}}</span>
+            <span class="icon">👎</span>
+            <span class="icon">Reply</span>
+            <span class="replies-dropdown" *ngIf="comment.replies && comment.replies.comments.length" (click)="toggleRepliesVisibility(comment)">
+                {{ comment.showReplies ? '▲' : '▼' }} {{comment.totalReplyCount}} replies
+            </span>
+        </div>
+    </div>
+    <div *ngIf="comment.showReplies && comment.replies" class="nested-comment">
+        <app-comment [comments]="comment.replies.comments"></app-comment>
+    </div>
+</div>

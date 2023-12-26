@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div class="view-container" style="background-color: rgb(242,242,242);">
+    <div class="view-container">
         <div class="views">
             <p>{{watchVideoDetails.viewCount}} views <span>• 3 days ago</span></p>
         </div>
@@ -42,3 +42,5 @@
     </div>
     
 </div>
+
+<app-comments-container [commentCount]="watchVideoDetails.commentCount" [videoId]="watchVideoDetails.videoId"></app-comments-container>

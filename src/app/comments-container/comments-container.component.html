@@ -1,0 +1,8 @@
+<div *ngIf="commentCount;else noComments">
+    <h3>{{commentCount}} Comments</h3>
+    <input type="text" placeholder="Add a comment...">
+    <app-comment [comments]="comments"></app-comment>
+</div>
+<ng-template #noComments>
+    <p>Comments are turned off. <a href="https://support.google.com/youtube/answer/9706180?hl=en-GB">Learn more</a></p>
+</ng-template>

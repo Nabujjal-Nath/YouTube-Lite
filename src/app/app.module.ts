@@ -14,6 +14,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
 import { SearchListComponent } from './search-list/search-list.component';
 import { WatchPageComponent } from './watch-page/watch-page.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsContainerComponent } from './comments-container/comments-container.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { WatchPageComponent } from './watch-page/watch-page.component';
     HomeComponent,
     SearchbarComponent,
     SearchListComponent,
-    WatchPageComponent
+    WatchPageComponent,
+    CommentComponent,
+    CommentsContainerComponent
   ],
   imports: [
     BrowserModule,

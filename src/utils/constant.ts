@@ -10,3 +10,4 @@ export const VIDEO_BY_ID=`${videos}key=${environment.GOOGLE_API_KEY}&id=`
 export const PROXY_D0MAIN='/search-suggestion'
 export const SEARCH_SUGGESTION=`${PROXY_D0MAIN}/complete/search?client=firefox&ds=yt&q=`
 export const SEARCH_LIST=`${baseURL}/search?part=snippet&maxResults=50&key=${environment.GOOGLE_API_KEY}&q=`
+export const COMMENT_THREAD=`${baseURL}/commentThreads?part=snippet%2Creplies&order=relevance&maxResults=100&key=${environment.GOOGLE_API_KEY}&videoId=`
