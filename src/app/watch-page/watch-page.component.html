@@ -1,4 +1,8 @@
-<app-video-player (videoIdChange)="onVideoIdChange($event)"></app-video-player>
+<div class="content-container">
+    <app-video-player (videoIdChange)="onVideoIdChange($event)"></app-video-player>
+    <app-live-chat class="live-chat-container"></app-live-chat>
+</div>
+
 <div class="video-container">
     <div class="title-container">
         <div class="title">{{watchVideoDetails.title}}</div>

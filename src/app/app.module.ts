@@ -16,6 +16,7 @@ import { SearchListComponent } from './search-list/search-list.component';
 import { WatchPageComponent } from './watch-page/watch-page.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsContainerComponent } from './comments-container/comments-container.component';
+import { LiveChatComponent } from './live-chat/live-chat.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CommentsContainerComponent } from './comments-container/comments-contai
     SearchListComponent,
     WatchPageComponent,
     CommentComponent,
-    CommentsContainerComponent
+    CommentsContainerComponent,
+    LiveChatComponent
   ],
   imports: [
     BrowserModule,
