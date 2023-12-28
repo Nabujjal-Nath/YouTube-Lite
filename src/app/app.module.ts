@@ -17,6 +17,7 @@ import { WatchPageComponent } from './watch-page/watch-page.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsContainerComponent } from './comments-container/comments-container.component';
 import { LiveChatComponent } from './live-chat/live-chat.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LiveChatComponent } from './live-chat/live-chat.component';
     WatchPageComponent,
     CommentComponent,
     CommentsContainerComponent,
-    LiveChatComponent
+    LiveChatComponent,
+    ChatMessageComponent
   ],
   imports: [
     BrowserModule,
