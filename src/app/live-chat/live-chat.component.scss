@@ -1,0 +1,16 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Aligns the content to the bottom */
+    height: 568px;
+    /* Set to the desired height */
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Makes the container scrollable */
+    height: 100%;
+}

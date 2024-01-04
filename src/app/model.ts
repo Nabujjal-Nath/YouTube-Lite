@@ -29,3 +29,8 @@ export interface Comment {
 export interface CommentReplies {
     comments: Comment[];
 }
+
+export interface ChatMessage {
+    name: string;
+    message: string;
+  }

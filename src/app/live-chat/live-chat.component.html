@@ -1,1 +1,19 @@
-<app-chat-message></app-chat-message>
+<div class="chat-container">
+    <div class="messages">
+        <div *ngFor="let chat of chatMessages">
+            <app-chat-message [chat]="chat"></app-chat-message>
+        </div>
+    </div>
+    <div>
+        <form (ngSubmit)="sendMessage()">
+            <div class="user-icon">
+                <!-- Place for user icon -->
+            </div>
+            <div class="input-area">
+                <input type="text" [(ngModel)]="liveMessage" />
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+
+</div>
