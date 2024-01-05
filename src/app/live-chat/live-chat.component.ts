@@ -18,7 +18,7 @@ export class LiveChatComponent implements OnInit, OnDestroy {
   }
 
   sendMessage() {
-    if (this.liveMessage.trim()) {
+    if (this.liveMessage) {
       this.chatService.addMessage({ name: 'New User', message: this.liveMessage });
       this.liveMessage = '';
     }
