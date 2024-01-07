@@ -18,6 +18,7 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentsContainerComponent } from './comments-container/comments-container.component';
 import { LiveChatComponent } from './live-chat/live-chat.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { KeywordFilterComponent } from './keyword-filter/keyword-filter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
     CommentComponent,
     CommentsContainerComponent,
     LiveChatComponent,
-    ChatMessageComponent
+    ChatMessageComponent,
+    KeywordFilterComponent
   ],
   imports: [
     BrowserModule,

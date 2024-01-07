@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  onFilterSelect(keyword: string) {
+    console.log("keyword is:",keyword)
+  }
 
 }

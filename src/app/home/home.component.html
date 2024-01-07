@@ -3,6 +3,7 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="yt-video-container">
+        <app-keyword-filter (filterSelect)="onFilterSelect($event)"></app-keyword-filter>
         <app-video-container></app-video-container>
     </div>
 </div>
