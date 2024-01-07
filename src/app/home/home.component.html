@@ -4,6 +4,6 @@
     </div>
     <div class="yt-video-container">
         <app-keyword-filter (filterSelect)="onFilterSelect($event)"></app-keyword-filter>
-        <app-video-container></app-video-container>
+        <app-video-container [list]="lists"></app-video-container>
     </div>
 </div>

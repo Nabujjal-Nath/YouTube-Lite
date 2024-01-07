@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiService } from '../api.service';
 import { catchError, forkJoin, map, switchMap, throwError } from 'rxjs';
 import { formatCount } from 'src/utils/common-utils';
@@ -10,11 +10,19 @@ import { videoDetailsInterface } from '../model';
   templateUrl: './video-container.component.html',
   styleUrls: ['./video-container.component.scss']
 })
-export class VideoContainerComponent implements OnInit {
+export class VideoContainerComponent implements OnInit,OnChanges {
   mostPopularVideos: videoDetailsInterface[] = [];
+  @Input()
+  list: videoDetailsInterface[] = [];
   constructor(private api: ApiService) { }
   ngOnInit(): void {
     this.fetchMostPopularVideos();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['list'] && changes['list'].currentValue) {
+      this.mostPopularVideos = changes['list'].currentValue;
+    }
   }
 
   fetchMostPopularVideos() {

@@ -12,41 +12,10 @@ import { videoDetailsInterface } from '../model';
 })
 export class SearchListComponent {
   searchListData!: videoDetailsInterface[];
-  constructor(private api: ApiService,
-    private storeService: StoreService){}
+  constructor(private storeService: StoreService) { }
   ngOnInit() {
-    this.storeService.getSearchedData().pipe(
-      filter(data => data !== null && data.items && Array.isArray(data.items)),
-      catchError((error) => throwError(() => error)),
-      switchMap((data: any) => {
-        console.log("data is search:::::", data)
-        const searchedVideoItems = data.items.filter((item: any) => item.id && item.id.videoId);
-        const channelInfoRequests = searchedVideoItems.map((item: any) => {
-          return this.api.fetchChannelInfoAPI(item.snippet.channelId);
-        });
-        const videoInfoRequests = searchedVideoItems.map((item: any) => {
-          return this.api.fetchVideoInfoAPI(item.id.videoId);
-        });
-        return forkJoin([forkJoin(channelInfoRequests), forkJoin(videoInfoRequests)]).pipe(
-          catchError((error) => throwError(() => error)),
-          map(([channelInfoResponses, videoInfoResponses]: [any, any]) => ({
-            searchedVideoItems, channelInfoResponses, videoInfoResponses
-          }))
-        );
-      })
-    ).subscribe(({ searchedVideoItems, channelInfoResponses, videoInfoResponses }: any) => {
-      this.searchListData = searchedVideoItems.map((item: any, index: number) => {
-        return {
-          videoId: item.id.videoId,
-          thumbnails: item.snippet.thumbnails.medium.url,
-          title: item.snippet.title,
-          channelTitle: item.snippet.channelTitle,
-          viewCount: formatCount(videoInfoResponses[index].items[0].statistics.viewCount),
-          channelIcon: channelInfoResponses[index].items[0].snippet.thumbnails.default.url,
-          videoDescription: item.snippet.description
-        };
-      });
-      console.log("SSS::", this.searchListData);
-    });
+    this.storeService.getSearchedVideoDetails(this.storeService.getSearchedData()).subscribe((data: videoDetailsInterface[]) => {
+      this.searchListData = data;
+    })
   }
 }
