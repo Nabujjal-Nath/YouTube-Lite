@@ -1,23 +1,48 @@
-.youtube-sidebar {
-  width: 150px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin-top: 2px;
+.yt-sidebar {
+  width: 240px;
+  background-color: #f9f9f9;
+  padding: 8px 0;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-.youtube-sidebar ul {
-  list-style: none;
-  padding: 0;
+.sidebar-section {
+  margin-bottom: 16px;
 }
 
-.youtube-sidebar li {
-  margin-bottom: 10px;
-}
-
-.youtube-sidebar a {
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  color: #030303;
   text-decoration: none;
+
+  &:hover {
+    background-color: #e8e8e8;
+  }
+
+  img {
+    margin-right: 20px;
+  }
 }
 
-.youtube-sidebar a:hover {
-  text-decoration: underline;
+
+.sidebar-title {
+  padding: 8px 24px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.sidebar-section {
+  border-bottom: 1px solid #e0e0e0;
+  /* light gray border */
+  margin-bottom: 1rem;
+  /* space below the line */
+  padding-bottom: 1rem;
+  /* space above the line */
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
 }
